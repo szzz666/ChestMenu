@@ -23,4 +23,15 @@ json菜单文件，如menus/main.json
   }
 }
 ```
-通过`/openmenu 文件名`命令打开对应菜单
+通过`/openmenu 文件名`命令打开对应菜单（文件名不包含.json后缀）
+
+本插件可以作为EsayChestMenuApi使用，以下是示例代码：
+```java
+public static void test1(Player player) {
+    BigChestMenu menu = new BigChestMenu("test", true, true);
+    menu.add(0, Item.get(Item.STONE_SWORD), () -> player.sendMessage("clicked 1"));
+    menu.add(1, Item.get(Item.STONE_SWORD), () -> player.sendMessage("clicked 2"));
+    menu.add(2, Item.get(Item.STONE_SWORD), () -> player.sendMessage("clicked 3"));
+    menu.show(player);
+}
+```
