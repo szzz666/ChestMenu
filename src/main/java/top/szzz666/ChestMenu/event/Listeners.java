@@ -11,7 +11,6 @@ import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.nbt.tag.CompoundTag;
 import top.szzz666.ChestMenu.entity.ItemStr;
 
-
 import java.util.HashMap;
 
 import static top.szzz666.ChestMenu.ChestMenuMain.ec;
@@ -43,6 +42,9 @@ public class Listeners implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+        if(itemStr.toItem().getId() == 0){
+            return;
+        }
         Async(() -> {
             Player player = event.getPlayer();
             giveFormItem(player);
@@ -56,6 +58,9 @@ public class Listeners implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
+        if(itemStr.toItem().getId() == 0){
+            return;
+        }
         Player player = event.getPlayer();
         Item item = player.getInventory().getItemInHand();
         if (!itemStr.equals(item)) {
