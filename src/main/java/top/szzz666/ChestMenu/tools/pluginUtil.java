@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import static top.szzz666.ChestMenu.ChestMenuMain.*;
 import static top.szzz666.ChestMenu.tools.taskUtil.Async;
+import static top.szzz666.ChestMenu.tools.taskUtil.Delayed;
 
 public class pluginUtil {
     public static void openMenu(CommandSender sender, String[] args, Player player) {
@@ -72,13 +73,19 @@ public class pluginUtil {
     }
 
     public static void multCmds(CommandSender sender, ArrayList<String> commands) {
-        for (String command : commands) {
-            nkServer.getCommandMap().dispatch(sender, command);
-        }
+        Delayed(() -> {
+            for (String command : commands) {
+                nkServer.getCommandMap().dispatch(sender, command);
+            }
+        }, 10, true);
+
     }
 
     public static void multCmd(CommandSender sender, String command) {
-        nkServer.getCommandMap().dispatch(sender, command);
+        Delayed(() -> {
+            nkServer.getCommandMap().dispatch(sender, command);
+        }, 10, true);
+
     }
 
     public static void checkServer() {
