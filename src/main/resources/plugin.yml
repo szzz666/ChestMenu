@@ -1,0 +1,6 @@
+name: ChestMenu
+main: top.szzz666.ChestMenu.ChestMenuMain
+version: "1.0.0"
+author: szzz666
+api: ["1.0.0"]
+description: ChestMenu plugin
