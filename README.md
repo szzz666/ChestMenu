@@ -10,7 +10,7 @@ command: openmenu
 clearInventoryCommand: cleargfi
 ```
 json菜单文件，如menus/main.json
-```json lines
+```json5
 {
   "title": "测试菜单",
   "type": 0,//  0:普通箱子菜单 1:大箱子菜单
