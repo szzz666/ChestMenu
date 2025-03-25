@@ -13,10 +13,8 @@ public class CMListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onInventoryTransaction(InventoryTransactionEvent event) {
         event.getTransaction().getActions().forEach(action -> {
-            if (action instanceof SlotChangeAction) {
-                SlotChangeAction slotChange = (SlotChangeAction) action;
-                if (slotChange.getInventory() instanceof ChestFakeInventory) {
-                    ChestFakeInventory inventory = (ChestFakeInventory) slotChange.getInventory();
+            if (action instanceof SlotChangeAction slotChange) {
+                if (slotChange.getInventory() instanceof ChestFakeInventory inventory) {
                     inventory.setEvent(event);
                     int slot = slotChange.getSlot();
                     if (inventory.getSlots().contains(slot)) {

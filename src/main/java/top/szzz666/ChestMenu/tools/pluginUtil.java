@@ -36,7 +36,7 @@ public class pluginUtil {
             Gson gson = new Gson();
             Menu menu = gson.fromJson(content, Menu.class);
             if (menu.getType() == 0) {
-                ChestMenu cmenu = new ChestMenu(menu.getTitle(), true, true);
+                ChestMenu cmenu = new ChestMenu(menu.getTitle(), true);
                 for (String eitem : menu.getButtons().keySet()) {
                     ArrayList<String> commands = menu.getButtons().get(eitem);
                     String[] eitemArr = eitem.split(":");
